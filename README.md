@@ -1,7 +1,7 @@
 # The OSCP Playbook
 
 ![Version](https://img.shields.io/badge/Version-2023-orange?style=for-the-badge&logo=gnometerminal)
-![Date](https://img.shields.io/badge/crated-May%2023-informational?style=for-the-badge&logo=clockify)
+![Date](https://img.shields.io/badge/created-May%2023-informational?style=for-the-badge&logo=clockify)
 
 This repository contains various cheatsheets and references to useful commands and tools for the PEN-200 exam, updated to version 2023. 
 ___
