@@ -23,3 +23,7 @@ This section contains useful links to tools and guides
 SNMP Walk
 
 `snmpwalk -v2c -c public 192.168.196.156 NET-SNMP-EXTEND-MIB::nsExtendObjects`
+
+LFI Wordlist
+
+`/usr/share/seclists/Discovery/Web-Content/quickhits.txt`
