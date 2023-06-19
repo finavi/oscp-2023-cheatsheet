@@ -3,6 +3,7 @@
 Most common wordlists:
 
 * `/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt`
+* `/usr/share/wordlists/fasttrack.txt`
 
 ### Hydra
 

