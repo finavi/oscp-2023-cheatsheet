@@ -17,3 +17,9 @@ This section contains useful links to tools and guides
 13. [sShuttle Releases](https://github.com/sshuttle/sshuttle/releases)
 14. [Network Pivoting using SSH](https://bryanleong98.medium.com/network-pivoting-using-ssh-return-reverse-shell-from-internal-network-machine-f1c5043b2d86)
 15. [SAM and SYSTEM credential dumping](https://www.hackingarticles.in/credential-dumping-sam/)
+
+### Bonus Commands
+
+SNMP Walk
+
+`snmpwalk -v2c -c public 192.168.196.156 NET-SNMP-EXTEND-MIB::nsExtendObjects`
